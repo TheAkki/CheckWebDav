@@ -1,0 +1,7 @@
+[package]
+name = "check_webdav"
+version = "0.1.0"
+authors = ["theakki <theakki@mailbox.org>"]
+
+[dependencies]
+argparse = "0.2.2"
