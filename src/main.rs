@@ -50,7 +50,7 @@ fn copy_file(options: &ProgramOptions, source: &Path, target: &Path, actual : &P
 {
     let source_object = actual.clone();
     let relative_object = actual.strip_prefix(source).expect("First part of path not cutable");
-    let filename = actual.file_name().unwrap().to_os_string().into_string().unwrap();    
+    let _filename = actual.file_name().unwrap().to_os_string().into_string().unwrap();    
     let target_object = target.join(relative_object);    
     //let target_path = target.join(relative_object);
     let target_object1 = target_object.clone();
@@ -71,7 +71,7 @@ fn copy_file(options: &ProgramOptions, source: &Path, target: &Path, actual : &P
 }
 
 
-fn copy(options: &ProgramOptions, mut progress: &mut ProgressStatistik, source: &Path, target: &Path, actual : &Path) -> bool
+fn copy(options: &ProgramOptions, progress: &mut ProgressStatistik, source: &Path, target: &Path, actual : &Path) -> bool
 {
     let metadata = actual.metadata().expect("Read metadata failed");
     progress.last_file_size = metadata.len();
@@ -95,7 +95,7 @@ fn copy(options: &ProgramOptions, mut progress: &mut ProgressStatistik, source: 
 }
 
 
-fn test_get_dav_entries(options: &ProgramOptions) -> bool
+fn test_get_dav_entries(_options: &ProgramOptions) -> bool
 {
     true
 }
@@ -152,7 +152,7 @@ fn check_and_run(options : &ProgramOptions) -> ProgressStatistik
     let source = source_path.canonicalize().expect("Source path not valid");
     let target = target_path.canonicalize().expect("Target path not valid");
     
-    let mut result_run : bool;
+    let result_run : bool;
     {
         result_run = run(&options, &mut result, &source, &target, &source);
     }
